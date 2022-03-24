@@ -4,7 +4,7 @@
     // dss build 需要 ES Module
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["esnext"],
+    "lib": ["esnext", "DOM"],
     "types": ["node"],
     "strict": true,
     "esModuleInterop": true,

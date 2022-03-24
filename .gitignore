@@ -9,3 +9,6 @@ npm-debug.log
 # Build Artifacts
 bld/
 bundled-script.js
+
+# Config
+.config.js

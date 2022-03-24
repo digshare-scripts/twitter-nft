@@ -101,6 +101,11 @@ export default script<Payload, Storage>(
       let tweetsCountFetched = 0;
 
       while (true) {
+        console.log(
+          'tweets: ',
+          tweets.map(tweet => tweet.id),
+        );
+
         if (recentTweetId === -Infinity) {
           recentTweetId = Math.max(...tweets.map(tweet => tweet.id));
 
@@ -142,7 +147,6 @@ export default script<Payload, Storage>(
           nextResultCursor.content.operation.cursor.value,
         );
 
-        console.info('[twitter]', 'fetch more tweets', searchAPIURL.href);
         result = await page.evaluate(
           async (url, headers) => {
             // @ts-ignore

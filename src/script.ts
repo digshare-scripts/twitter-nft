@@ -86,7 +86,7 @@ export default script<Payload, Storage>(
 
       let lastTweetId = storage.getItem('lastTweetId');
 
-      console.info('[twitter]', 'lastTweetId', lastTweetId);
+      console.info('[twitter-nft]', 'lastTweetId', lastTweetId);
 
       let recentTweetId = Math.max(...tweets.map(tweet => tweet.id));
 
@@ -101,10 +101,7 @@ export default script<Payload, Storage>(
       let tweetsCountFetched = 0;
 
       while (true) {
-        console.log(
-          'tweets: ',
-          tweets.map(tweet => tweet.id),
-        );
+        console.info('[twitter-nft]', 'fetchedMoreTweets', tweets.length);
 
         if (recentTweetId === -Infinity) {
           recentTweetId = Math.max(...tweets.map(tweet => tweet.id));
@@ -177,6 +174,11 @@ export default script<Payload, Storage>(
       }
 
       let tweetsToSend = filterAndTagGroupTweets(tweetsAvailable, userMap);
+
+      console.info(
+        '[twitter-nft]',
+        `Fetched tweets: ${tweetsAvailable.length}, filtered: ${tweetsToSend.length}`,
+      );
 
       for (let tweet of tweetsToSend) {
         let message = await convertTweetToMessageContent(tweet, page);

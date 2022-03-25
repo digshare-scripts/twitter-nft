@@ -28,7 +28,7 @@ export async function getChromeWebSocketDebuggerURL(dev: boolean) {
   let chromeURL = new URL(CHROME_ADDRESS);
   let wsURL = new URL(chromeVersion.webSocketDebuggerUrl);
 
-  if (CHROME_ADDRESS.protocol === 'https:') {
+  if (chromeURL.protocol === 'https:') {
     wsURL.protocol = 'wss';
   }
 

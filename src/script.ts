@@ -187,6 +187,7 @@ export default script<Payload, Storage>(
       }
     } catch (error) {
       console.error(error);
+    } finally {
       page.close();
     }
   },
